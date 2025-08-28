@@ -1,0 +1,96 @@
+package com.trevisan.EmailSender.Email;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class EmailTemplates {
+
+    public final String bodyWithHtmlV1 = """
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Email Profissional</title>
+              <style>
+                body {
+                  margin: 0;
+                  padding: 0;
+                  font-family: Arial, Helvetica, sans-serif;
+                  background-color: #f4f4f4;
+                  color: #333333;
+                }
+                .container {
+                  width: 100%;
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #ffffff;
+                  border-radius: 8px;
+                  overflow: hidden;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+                .header {
+                  background-color: #0073b1;
+                  padding: 20px;
+                  text-align: center;
+                  color: #ffffff;
+                }
+                .header h1 {
+                  margin: 0;
+                  font-size: 24px;
+                }
+                .content {
+                  padding: 20px;
+                  line-height: 1.6;
+                }
+                .content h2 {
+                  font-size: 20px;
+                  color: #0073b1;
+                }
+                .content p {
+                  margin: 10px 0;
+                }
+                .button {
+                  display: inline-block;
+                  padding: 10px 20px;
+                  margin: 20px 0;
+                  background-color: #0073b1;
+                  color: #ffffff;
+                  text-decoration: none;
+                  border-radius: 5px;
+                  font-weight: bold;
+                }
+                .footer {
+                  background-color: #f4f4f4;
+                  padding: 10px;
+                  text-align: center;
+                  font-size: 12px;
+                  color: #666666;
+                }
+                .footer a {
+                  color: #0073b1;
+                  text-decoration: none;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <div class="header">
+                  <h1>Assunto do Email</h1>
+                </div>
+                <div class="content">
+                  <h2>Olá, Thiago Trevisan</h2>
+                  <p>Este é um email profissional enviado através de nossa API de envio de emails. Você pode personalizar este conteúdo para atender às suas necessidades específicas.</p>
+                  <p>Se precisar de mais informações ou assistência, clique no botão abaixo ou entre em contato conosco diretamente.</p>
+                  <a href="[Link de Ação]" class="button">Chamada para Ação</a>
+                </div>
+                <div class="footer">
+                  <p>Enviado por [Nome da Empresa] | <a href="[Link de Contato]">Entre em Contato</a></p>
+                  <p>Para não receber mais emails, <a href="[Link de Cancelamento]">clique aqui</a>.</p>
+                </div>
+              </div>
+            </body>
+            </html>
+            """;
+
+}
