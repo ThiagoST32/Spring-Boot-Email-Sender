@@ -13,18 +13,16 @@ public class SesConfig {
     @Autowired
     private ConfigEnv env;
 
-    @Bean("SesCredentials")
-    public AwsBasicCredentials configureBasicCredentials(){
-        return AwsBasicCredentials.builder()
+    @Bean("SesClient")
+    public SesClient sesClientConfig(){
+        AwsBasicCredentials credentials = AwsBasicCredentials.builder()
                 .accessKeyId(env.getAccessKey())
                 .secretAccessKey(env.getSecretKey())
                 .build();
-    }
 
-    @Bean("SesClient")
-    public SesClient sesClient(){
         return SesClient.builder()
-                .credentialsProvider(StaticCredentialsProvider.create())
+                .credentialsProvider(StaticCredentialsProvider.create(credentials))
+                .region(env.getRegion())
                 .build();
     }
 }
