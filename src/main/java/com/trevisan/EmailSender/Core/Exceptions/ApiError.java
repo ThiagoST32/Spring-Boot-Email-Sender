@@ -1,14 +1,21 @@
 package com.trevisan.EmailSender.Core.Exceptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
+import java.util.List;
 
-@Data
-@AllArgsConstructor
-public class ApiError {
-    private int statusCode;
-    private String message;
-    private OffsetDateTime offsetDateTime;
+@Builder
+public record ApiError(
+        @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+        LocalDateTime timestamp,
+
+        Integer code,
+
+        String status,
+
+        List<String> errors
+
+) {
 }
