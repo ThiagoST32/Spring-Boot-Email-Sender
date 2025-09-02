@@ -1,26 +1,31 @@
 package com.trevisan.EmailSender.Infra.Services;
 
 import com.trevisan.EmailSender.Adapters.EmailSenderGateway;
-import com.trevisan.EmailSender.Email.EmailTemplates;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.ses.SesClient;
 import software.amazon.awssdk.services.ses.model.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 @Service
 public class SesService implements EmailSenderGateway {
     private final SesClient sesClient;
-    private final EmailTemplates templates;
+    private String bodyHtml = "";
 
     @Autowired
-    public SesService(SesClient sesClient, EmailTemplates templates) {
+    public SesService(SesClient sesClient) {
         this.sesClient = sesClient;
-        this.templates = templates;
     }
 
+    @SneakyThrows
     @Override
     public String senderEmail(String to, String subject) {
+        this.readHtmlFile();
         send(sesClient, to, subject);
         sesClient.close();
         return "Email enviado!";
@@ -36,7 +41,7 @@ public class SesService implements EmailSenderGateway {
                 .build();
 
         Content contentHtml = Content.builder()
-                .data(templates.bodyWithHtmlV1)
+                .data(bodyHtml)
                 .build();
 
         Body body = Body.builder()
@@ -60,5 +65,9 @@ public class SesService implements EmailSenderGateway {
                 .destination(destination)
                 .source(to)
                 .build();
+    }
+
+    private void readHtmlFile() throws IOException {
+        bodyHtml = Files.readString(Path.of("src/main/java/com/trevisan/EmailSender/Email/index.html"));
     }
 }
