@@ -1,4 +1,4 @@
-package com.trevisan.EmailSender.Core.Exceptions;
+package com.trevisan.EmailSender.Core.Exceptions.Exceptions;
 
 public class NullValueOnEmailOrSubject extends NullPointerException {
     public NullValueOnEmailOrSubject(){

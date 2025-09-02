@@ -1,4 +1,4 @@
-package com.trevisan.EmailSender.Core.Exceptions;
+package com.trevisan.EmailSender.Core.Exceptions.Exceptions;
 
 import software.amazon.awssdk.services.ses.model.SesException;
 
