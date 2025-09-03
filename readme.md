@@ -75,6 +75,7 @@ Key Files:
 
 2. **Configure Environment Variables** ⚙️:
    Set the required AWS credentials in your environment or via a `ConfigEnv` bean (injected in `SesConfig`), you will need to create a .env file to place your access credentials, following the standard configuration `ConfigEnv` file responsible for reading this information.
+   ![img.png](img.png)
 
 3. **Build the Project** 🛠️:
    ```
