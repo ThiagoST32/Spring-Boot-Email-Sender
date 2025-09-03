@@ -113,6 +113,7 @@ Note: Ensure your AWS SES is out of sandbox mode for sending to unverified email
         "subject": "Welcome Email"
       }
       ```
+    - **Export the file**: EmailSender.postman_collection on your postman.
     - **Response**:
         - Success: 200 OK with message "Email enviado!". ✅
         - Error: Custom `ApiError` response with status code, message, and timestamp. ❌

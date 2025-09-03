@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "be4a6c0e-e66c-4958-b582-706dc6afc35f",
+		"name": "EmailSender",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32975872"
+	},
+	"item": [
+		{
+			"name": "SendEmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"\",\n    \"subject\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/v1/sendEmail/send"
+			},
+			"response": []
+		}
+	]
+}
